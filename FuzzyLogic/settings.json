@@ -1,0 +1,13 @@
+Fill this with your sql settings 
+for Windows Authentication
+{
+  "ConnectionStrings": {
+    "Default": "Server=Server_name;Database=database_name;Integrated Security=SSPI;MultipleActiveResultSets=true"
+  }
+}
+for SQL Authentication
+{
+  "ConnectionStrings": {
+    "Default": "Server=Server_name;Database=database_name;UserId=YOUR_USER;Password=YOUR_PASSWORD;MultipleActiveResultSets=true"
+  }
+}

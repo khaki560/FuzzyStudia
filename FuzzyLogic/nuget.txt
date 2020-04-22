@@ -1,0 +1,6 @@
+List of all nuget packages used in the project
+------------------------------------------------
+Microsoft.Extensions.Configuration;
+Microsoft.Extensions.Configuration.FileExtensions;
+Microsoft.Extensions.Configuration.Json;
+System.Data.SqlClient.
