@@ -49,7 +49,7 @@ namespace FuzzyLogic.src
 
             foreach (var x in mSet)
             {
-                set.Add( new Tuple<Double, Double>(x.Item1, 1 - x.Item2));
+                set.Add( new Tuple<Double, Double>(x.Item1, Math.Round(1 - x.Item2, 2)));
             }
 
             return new Set(set, mMemberShipFunction);
@@ -61,7 +61,7 @@ namespace FuzzyLogic.src
 
             for (int i = 0; i < this.Length(); i++)
             {
-                if( Math.Abs(this.mSet[i].Item1 - b.mSet[i].Item1) > 0.001)
+                if( Math.Abs(this.mSet[i].Item1 - b.mSet[i].Item1) > 0.01)
                 {
                     throw new Exception("Elements not match");
                 }
@@ -77,7 +77,7 @@ namespace FuzzyLogic.src
 
             for (int i = 0; i < this.Length(); i++)
             {
-                if (Math.Abs(this.mSet[i].Item1 - b.mSet[i].Item1) > 0.001)
+                if (Math.Abs(this.mSet[i].Item1 - b.mSet[i].Item1) > 0.01)
                 {
                     throw new Exception("Elements not match");
                 }
@@ -104,7 +104,7 @@ namespace FuzzyLogic.src
 
         public bool IsNormal()
         {
-            return Math.Abs(1 - Height()) < 0.001;
+            return Math.Abs(1 - Height()) < 0.01;
         }
 
         public bool IsEmpty()
@@ -114,7 +114,7 @@ namespace FuzzyLogic.src
             foreach (var el in mSet)
             {
                 double value = el.Item2;
-                if(!(Math.Abs(0 - value) < 0.001))
+                if(!(Math.Abs(0 - value) < 0.01))
                 {
                     IsEmpty = false;
                     break;
