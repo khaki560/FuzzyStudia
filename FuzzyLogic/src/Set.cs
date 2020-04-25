@@ -86,5 +86,51 @@ namespace FuzzyLogic.src
 
             return new Set(set, mMemberShipFunction);
         }
+
+        public double Height()
+        {
+            double max_el = -1.0;
+            foreach(var el in mSet)
+            {
+                double value = el.Item2;
+
+                if(value > max_el)
+                {
+                    max_el = value;
+                }
+            }
+            return max_el;
+        }
+
+        public bool IsNormal()
+        {
+            return Math.Abs(1 - Height()) < 0.001;
+        }
+
+        public bool IsEmpty()
+        {
+            bool IsEmpty = true;
+
+            foreach (var el in mSet)
+            {
+                double value = el.Item2;
+                if(!(Math.Abs(0 - value) < 0.001))
+                {
+                    IsEmpty = false;
+                    break;
+                }
+            }
+            return IsEmpty;
+        }
+
+        public bool IsConcave()
+        {
+            throw new NotImplementedException("No idea how");
+        }
+
+        public bool IsConvex()
+        {
+            throw new NotImplementedException("No idea how");
+        }
     }
 }

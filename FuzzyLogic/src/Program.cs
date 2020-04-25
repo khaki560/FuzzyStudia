@@ -30,7 +30,7 @@ namespace FuzzyLogic
                 huminidity.Add(fuzzyModel.Humidity);
             }
 
-            // narrow down entries to better formating
+            // narrow down entries for better formating
             var temperature30 = temperature.GetRange(0, 5);
             var huminidity30 = huminidity.GetRange(0, 5);
             var dayNumber30 = dayNumber.GetRange(0, 5);
@@ -51,6 +51,14 @@ namespace FuzzyLogic
             PrintSet("Is day very steamy", setHuminidity);
             PrintSet("Is day Cold AND very steamy", setTemperatureCold.Intersection(setHuminidity));
             PrintSet("Is day Cold OR very steamy", setTemperatureCold.Union(setHuminidity));
+            PrintDouble("Height of setTemperatureCold", setTemperatureCold.Height());
+            PrintBool("is setTemperatureCold Empty", setTemperatureCold.IsEmpty());
+            PrintBool("is setTemperatureCold Normal", setTemperatureCold.IsNormal());
+            // Not implement
+            //PrintBool("is setTemperatureCold Concave", setTemperatureCold.IsConcave());
+            //PrintBool("is setTemperatureCold Convex", setTemperatureCold.IsConvex());
+
+
         }
 
         static void GetAppSettingsFile()
@@ -61,6 +69,17 @@ namespace FuzzyLogic
             _iconfiguration = builder.Build();
         }
 
+        static void PrintBool(string message, bool value)
+        {
+            Console.WriteLine(message);
+            Console.WriteLine(value);
+        }
+
+        static void PrintDouble(string message, double value)
+        {
+            Console.WriteLine(message);
+            Console.WriteLine(value);
+        }
         static void PrintSet(string message, Set set)
         {
             Console.WriteLine(message);
